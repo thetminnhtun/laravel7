@@ -80,20 +80,13 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <h1>Client Info</h1>
+                <p>PC Name: {{ gethostname() }}</p>
+                <p>Brower's accept language: {{ json_encode($agent->languages()) }}</p>
+                <p>Device name: {{ $agent->device() }}</p>
+                <p>Operation System: {{ $agent->platform() }} | {{ $agent->version($agent->platform()) }}</p>
+                <p>Browser name: {{ $agent->browser() }} | {{ $agent->version($agent->browser()) }}</p>
+                <p>IP Address: {{ request()->ip() }}</p>
             </div>
         </div>
     </body>
